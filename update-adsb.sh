@@ -119,11 +119,11 @@ cd $updir
 rm -rf $updir/readsb
 
 echo 'updating adsb stats .......'
-wget --quiet -O /tmp/axstats.sh https://raw.githubusercontent.com/ADSB-One/adsb-stats/master/stats.sh
-bash /tmp/astats.sh
+wget --quiet -O /tmp/aostats.sh https://raw.githubusercontent.com/ADSB-One/adsb-stats/master/stats.sh
+bash /tmp/aostats.sh
 
 echo 'cleaming up stats /tmp .......'
-rm -f /tmp/astats.sh
+rm -f /tmp/aostats.sh
 rm -f -R /tmp/adsb-stats-git
 
 VENV=/usr/local/share/adsb/venv/
