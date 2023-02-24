@@ -1,0 +1,23 @@
+[Unit]
+Description=ADSB Stats
+After=adsb-first-run.service
+After=readsb.service
+
+[Service]
+Type=simple
+SyslogIdentifier=adsb-stats
+PermissionsStartOnly=true
+ExecStartPre=/usr/local/share/adsb-stats/create-uuid.sh
+ExecStart=/usr/local/share/adsb-stats/json-status
+RuntimeDirectory=adsb-stats
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+RestartSec=30
+User=adsb
+Nice=19
+IOSchedulingClass=idle
+
+
+[Install]
+WantedBy=multi-user.target
