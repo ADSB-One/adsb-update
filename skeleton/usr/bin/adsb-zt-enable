@@ -30,17 +30,17 @@ if [[ ${ZEROTIER} == "yes" ]] || [[ -f /root/remote_support ]]; then
     sudo systemctl enable zerotier-one.service
     sudo systemctl start zerotier-one.service
     sleep 10
-    zerotier-cli join a84ac5c10aa1030f
+#   zerotier-cli join a84ac5c10aa1030f
     echo "ZT remote support enabled ..."
 elif [[ ${ZEROTIER_STANDALONE} == "yes" ]]; then
     sudo systemctl enable zerotier-one.service
     sudo systemctl start zerotier-one.service
 
-    zerotier-cli leave a84ac5c10aa1030f
+#   zerotier-cli leave a84ac5c10aa1030f
     sed -i -e "s#$ssh_key##" "$auth_file"
     echo "ZT standalone enabled ..."
 else
-    zerotier-cli leave a84ac5c10aa1030f
+#   zerotier-cli leave a84ac5c10aa1030f
     sed -i -e "s#$ssh_key##" "$auth_file"
 
     sudo systemctl stop zerotier-one.service
